@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fraternità S. M. degli Angeli</title>
+  
+  <meta name="description" content="Una fraternità nata per cercare Gesù nello stile semplice di Francesco d’Assisi. La nostra storia.">
+  <meta name="theme-color" content="#1a1a1a">
+  
+  <!-- PWA Manifest & Icons -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ConFrancesco">
+  
+  <!-- Faithful Google Sites Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Network Status Banner -->
+  <div id="network-status-bar" class="network-status-bar hidden"></div>
+
+  <!-- PWA Install Banner -->
+  <div id="pwa-install-banner" class="pwa-install-banner" style="display: none;">
+    <div class="pwa-banner-content">
+      <img src="icons/icon-96x96.png" alt="San Francesco" class="pwa-banner-icon">
+      <div class="pwa-banner-text">
+        <h4>Installa l'App di San Francesco</h4>
+        <p>Scarica l'app sul tuo telefono o PC per consultare tutti i contenuti anche offline!</p>
+      </div>
+    </div>
+    <div class="pwa-banner-actions">
+      <button class="btn-banner-install" id="btn-banner-install">&#10010; Installa App</button>
+      <button class="btn-banner-close" id="btn-banner-close" title="Chiudi">&times;</button>
+    </div>
+  </div>
+
+  <!-- Site Header & Navigation (Google Sites Top Bar) -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="index.html" class="site-brand">
+        <img src="icons/icon-96x96.png" alt="San Francesco" class="brand-icon">
+        <span class="brand-title">Fraternità S. M. degli Angeli</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home page</a></li>
+          <li class="dropdown">
+            <a href="chi-siamo.html" class="nav-link">Chi siamo &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="chi-siamo.html" class="dropdown-item">Chi siamo</a></li>
+              <li><a href="chi-siamo-il-carisma.html" class="dropdown-item">Il carisma</a></li>
+              <li><a href="chi-siamo-la-nostra-storia.html" class="dropdown-item">La nostra storia</a></li>
+              <li><a href="chi-siamo-fratelli-in-cielo.html" class="dropdown-item">Fratelli in cielo</a></li>
+            </ul>
+          </li>
+          <li><a href="dove-siamo.html" class="nav-link">Dove siamo</a></li>
+          <li><a href="calendario-attivita.html" class="nav-link">Calendario Attività</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+          <li>
+            <button class="btn-banner-install" id="nav-install-btn" style="display: none; padding: 6px 12px; margin-left: 8px;">
+              &#10010; Installa
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger button for mobile -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="icons/icon-72x72.png" alt="San Francesco" style="width: 38px; height: 38px; border-radius: 50%;">
+        <span style="color: var(--gs-gold); font-family: var(--font-gs-title); font-weight: 700;">ConFrancesco</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="active">Home page</a></li>
+      <li>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <ul class="mobile-sub-list">
+          <li><a href="chi-siamo.html">&bull; Chi siamo</a></li>
+          <li><a href="chi-siamo-il-carisma.html">&bull; Il carisma</a></li>
+          <li><a href="chi-siamo-la-nostra-storia.html">&bull; La nostra storia</a></li>
+          <li><a href="chi-siamo-fratelli-in-cielo.html">&bull; Fratelli in cielo</a></li>
+        </ul>
+      </li>
+      <li><a href="dove-siamo.html">Dove siamo</a></li>
+      <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <button class="btn-banner-install" id="install-app-btn" style="width: 100%; justify-content: center; margin-bottom: 12px; text-align: center;">
+        &#10010; Installa l'App
+      </button>
+      <a href="tel:+393291551992" class="gs-btn-green" style="display: block; text-align: center; font-size: 1rem; padding: 10px;">
+        &#128222; Chiama Ora
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Section 0: Google Sites Hero -->
+    <section class="home-hero" style="background-image: url('assets/images/home-page_img_03.jpg');">
+      <div class="home-hero-content">
+        <h1 class="home-hero-title">FRATERNITA' SANTA MARIA DEGLI ANGELI</h1>
+        
+        <div class="home-hero-image-wrap">
+          <img src="assets/images/home-page_img_02.jpg" alt="San Francesco con violino e Crocifisso di San Damiano" loading="eager">
+        </div>
+
+        <p class="home-hero-desc">
+          Diverse vocazioni, un solo desiderio: vivere il Vangelo con semplicità, preghiera e fraternità.
+        </p>
+        <p class="home-hero-desc">
+          In Sicilia, tra Noto, Piazza Armerina e Catania, camminiamo con Cristo sulle orme di Francesco per arrivare al cuore del fratello.
+        </p>
+
+        <a href="#home-actions" class="home-down-arrow" aria-label="Scorri verso il basso">&#709;</a>
+      </div>
+    </section>
+
+    <!-- Section 1: Quick Actions Strip -->
+    <section class="home-quick-actions" id="home-actions">
+      <a href="https://youtube.com/@fraternitasantamariadeglia6201?si=ktPKR-6ClR02o8w5" target="_blank" rel="noopener" class="gs-btn-olive">
+        Video/Omelie
+      </a>
+      <a href="contatti.html" class="gs-btn-olive">
+        Contatti
+      </a>
+    </section>
+
+    <!-- Section 3: Chi siamo Banner -->
+    <section class="home-banner-section" style="background-image: url('assets/images/home-page_img_04.jpg');">
+      <div class="home-banner-container">
+        <div>
+          <a href="chi-siamo.html" class="gs-btn-olive">Chi siamo</a>
+        </div>
+        <div class="home-banner-text">
+          Una fraternità nata per cercare Gesù nello stile semplice di Francesco d’Assisi. La nostra storia.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Calendario Attività Banner -->
+    <section class="home-banner-section" style="background-image: url('assets/images/home-page_img_05.jpg');">
+      <div class="home-banner-container">
+        <div>
+          <a href="calendario-attivita.html" class="gs-btn-olive">Calendario Attività</a>
+        </div>
+        <div class="home-banner-text">
+          Preghiera, fraternità, annuncio: una fede che diventa vita concreta. Guarda gli appuntamenti e partecipa con noi.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Dove siamo Banner -->
+    <section class="home-banner-section" style="background-image: url('assets/images/home-page_img_07.jpg');">
+      <div class="home-banner-container">
+        <div>
+          <a href="dove-siamo.html" class="gs-btn-olive">Dove siamo</a>
+        </div>
+        <div class="home-banner-text">
+          Noto – Piazza Armerina – Catania. Trova luoghi.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Photo Slider Carousel -->
+    <section class="home-carousel-section" style="background-image: url('assets/images/home-page_img_08.jpg');">
+      <div class="carousel-container">
+        <div class="carousel-slider">
+          <div class="carousel-slide active">
+            <img src="assets/images/home-page_img_09.jpg" alt="Comunità Fraternità" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_10.jpg" alt="Momenti di fraternità" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_11.jpg" alt="Incontro comunitario" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_13.jpg" alt="Preghiera e comunione" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_14.jpg" alt="Missione e condivisione" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_15.jpg" alt="Eremo San Damiano" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_16.jpg" alt="Catania Chiesa Santa Teresa" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_17.jpg" alt="Celebrazione fraterna" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_18.jpg" alt="Testimonianza francescana" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/home-page_img_19.jpg" alt="Gioia francescana" loading="lazy">
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-btn carousel-prev" aria-label="Precedente">&#10094;</button>
+          <button class="carousel-btn carousel-next" aria-label="Successiva">&#10095;</button>
+        </div>
+
+        <div class="carousel-dots">
+          <span class="carousel-dot active"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-text">
+        &copy; Fraternità Santa Maria degli Angeli &mdash; <a href="http://www.confrancesco.it" target="_blank" rel="noopener" style="color: var(--gs-gold);">www.confrancesco.it</a>
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo-il-carisma.html">Il carisma</a></li>
+        <li><a href="chi-siamo-la-nostra-storia.html">La nostra storia</a></li>
+        <li><a href="chi-siamo-fratelli-in-cielo.html">Fratelli in cielo</a></li>
+        <li><a href="dove-siamo.html">Dove siamo</a></li>
+        <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

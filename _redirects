@@ -1,0 +1,7 @@
+# Netlify Redirects for ConFrancesco PWA
+/home-page /index.html 301
+/chi-siamo/il-carisma /chi-siamo-il-carisma.html 301
+/chi-siamo/la-nostra-storia /chi-siamo-la-nostra-storia.html 301
+/chi-siamo/fratelli-in-cielo /chi-siamo-fratelli-in-cielo.html 301
+/calendario-attività /calendario-attivita.html 301
+/calendario-attivita /calendario-attivita.html 301

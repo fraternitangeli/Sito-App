@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Il carisma | Fraternità S. M. degli Angeli</title>
+  
+  <meta name="description" content="Il carisma della Fraternità Santa Maria degli Angeli: l'Eremo, i poveri ed esclusi, la strada, la comunione nella Chiesa.">
+  <meta name="theme-color" content="#1a1a1a">
+  
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ConFrancesco">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div id="network-status-bar" class="network-status-bar hidden"></div>
+
+  <div id="pwa-install-banner" class="pwa-install-banner" style="display: none;">
+    <div class="pwa-banner-content">
+      <img src="icons/icon-96x96.png" alt="San Francesco" class="pwa-banner-icon">
+      <div class="pwa-banner-text">
+        <h4>Installa l'App di San Francesco</h4>
+        <p>Scarica l'app per consultare tutti i contenuti anche offline!</p>
+      </div>
+    </div>
+    <div class="pwa-banner-actions">
+      <button class="btn-banner-install" id="btn-banner-install">&#10010; Installa App</button>
+      <button class="btn-banner-close" id="btn-banner-close" title="Chiudi">&times;</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="index.html" class="site-brand">
+        <img src="icons/icon-96x96.png" alt="San Francesco" class="brand-icon">
+        <span class="brand-title">Fraternità S. M. degli Angeli</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home page</a></li>
+          <li class="dropdown">
+            <a href="chi-siamo.html" class="nav-link active">Chi siamo &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="chi-siamo.html" class="dropdown-item">Chi siamo</a></li>
+              <li><a href="chi-siamo-il-carisma.html" class="dropdown-item">Il carisma</a></li>
+              <li><a href="chi-siamo-la-nostra-storia.html" class="dropdown-item">La nostra storia</a></li>
+              <li><a href="chi-siamo-fratelli-in-cielo.html" class="dropdown-item">Fratelli in cielo</a></li>
+            </ul>
+          </li>
+          <li><a href="dove-siamo.html" class="nav-link">Dove siamo</a></li>
+          <li><a href="calendario-attivita.html" class="nav-link">Calendario Attività</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+          <li>
+            <button class="btn-banner-install" id="nav-install-btn" style="display: none; padding: 6px 12px; margin-left: 8px;">
+              &#10010; Installa
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <aside class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="icons/icon-72x72.png" alt="San Francesco" style="width: 38px; height: 38px; border-radius: 50%;">
+        <span style="color: var(--gs-gold); font-family: var(--font-gs-title); font-weight: 700;">ConFrancesco</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home page</a></li>
+      <li>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <ul class="mobile-sub-list">
+          <li><a href="chi-siamo.html">&bull; Chi siamo</a></li>
+          <li><a href="chi-siamo-il-carisma.html" class="active">&bull; Il carisma</a></li>
+          <li><a href="chi-siamo-la-nostra-storia.html">&bull; La nostra storia</a></li>
+          <li><a href="chi-siamo-fratelli-in-cielo.html">&bull; Fratelli in cielo</a></li>
+        </ul>
+      </li>
+      <li><a href="dove-siamo.html">Dove siamo</a></li>
+      <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <button class="btn-banner-install" id="install-app-btn" style="width: 100%; justify-content: center; margin-bottom: 12px; text-align: center;">
+        &#10010; Installa l'App
+      </button>
+      <a href="tel:+393291551992" class="gs-btn-green" style="display: block; text-align: center; font-size: 1rem; padding: 10px;">
+        &#128222; Chiama Ora
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Header Banner -->
+    <div class="gs-page-header" style="background-image: url('assets/images/chi-siamo_il-carisma_img_11.jpg');">
+      <div class="gs-page-header-content">
+        <h1 class="gs-page-title">Il carisma</h1>
+      </div>
+    </div>
+
+    <!-- Section 1: Intro block (Dark charcoal) -->
+    <section class="carisma-section-dark">
+      <div class="carisma-grid">
+        <div>
+          <img src="assets/images/chi-siamo_il-carisma_img_01.jpg" alt="San Francesco e i fratelli" class="carisma-photo">
+        </div>
+        <div class="carisma-text-block">
+          <p>
+            La Fraternità Santa Maria degli Angeli si costituisce con lo scopo di servire Dio nella Chiesa, secondo gli insegnamenti del santo Vangelo e la spiritualità di Francesco e Chiara di Assisi, con una tensione particolare alla Regola scritta da San Francesco per i “romitori”, alla sua vita vissuta in povertà e minorità, nella preghiera, nella carità verso tutti gli uomini, nella libertà dei figli di Dio, nella gioia della fraternità, nell’annuncio che Dio ci ama, ci ama tutti di un amore infinito e ci ha salvati in Cristo Gesù.
+          </p>
+          <p class="carisma-quote">
+            “La Regola e la vita dei fratelli sia questa: seguire la dottrina e l’esempio del Signore nostro Gesù Cristo il quale dice: &lt;&lt;se qualcuno vuol venire dietro a me rinneghi se stesso, prenda ogni giorno la sua croce e mi segua&gt;&gt; e &lt;&lt;chi avrà lasciato il padre e la madre, i fratelli e le sorelle, la moglie e i figli, la casa e i campi per amor mio, riceverà il centuplo e possederà la vita eterna&gt;&gt;” (San Francesco di Assisi)
+          </p>
+          <p>
+            La Fraternità, ad imitazione della Santa Madre Chiesa e nel rispetto delle sue leggi si apre ad accogliere chiunque voglia impegnarsi sinceramente a vivere un’esperienza religiosa di fede e di carità nella dimensione di “piccola chiesa”. Nessuna condizione di vita, nessuno stato, nessuna età escludono di per sé da questa vocazione divina; chiunque, uomo o donna, vergine o sposato, desideroso di servire Dio secondo gli insegnamenti del Vangelo e la spiritualità propria della Fraternità, può essere accolto, ferme restando le condizioni per l’accettazione più avanti specificate.
+          </p>
+          <p>
+            La Fraternità, volendo fare suo il carisma evangelico che chiama ogni uomo alla santità e accoglie ogni creatura che si converte all’amore di Dio, si compone di tre stati di vita diversi e complementari, come rami dello stesso albero: i “<a href="#religiosi" style="color: var(--gs-gold); text-decoration: underline;">religiosi</a>”, gli “<a href="#oblati" style="color: var(--gs-gold); text-decoration: underline;">oblati</a>”, e i “<a href="#secolari" style="color: var(--gs-gold); text-decoration: underline;">secolari</a>”.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 2: L'EREMO (Slate blue) -->
+    <section class="carisma-block slate" id="eremo">
+      <div class="carisma-block-container">
+        <div>
+          <h2 class="carisma-block-title">L'EREMO &#709;</h2>
+          <div class="carisma-block-text">
+            <p>
+              I fratelli e le sorelle della Fraternità amano l'Eremo come luogo privilegiato del silenzio, dell'ascolto intimo della Parola di Dio e dell'incontro con il Signore.
+            </p>
+            <p>
+              Sull'esempio di Francesco che spesso si ritirava nelle carceri e nei romitori per immergersi nella contemplazione amorosa, la Fraternità custodisce l'esperienza eremitica come sorgente inesauribile da cui scaturisce ogni azione apostolica. Senza la sosta orante all'eremo, la missione perderebbe il suo vigore spirituale e la sua autenticità.
+            </p>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/chi-siamo_il-carisma_img_02.jpg" alt="L'Eremo al tramonto" class="carisma-block-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 3: I POVERI ED ESCLUSI (Charcoal) -->
+    <section class="carisma-block charcoal" id="poveri">
+      <div class="carisma-block-container">
+        <div>
+          <h2 class="carisma-block-title">I POVERI ED ESCLUSI &#709;</h2>
+          <div class="carisma-block-text">
+            <p>
+              Seguendo il Redentore che si è fatto povero per arricchirci con la Sua povertà, i membri della Fraternità scelgono di stare accanto a coloro che il mondo dimentica o rifiuta.
+            </p>
+            <p>
+              Nei poveri, nei malati, nei carcerati e in quanti vivono ai margini, la Fraternità riconosce la carne stessa di Cristo crocifisso e risorto. Il servizio verso di loro non è semplice filantropia, ma condivisione fraterna, rispetto profondo per la dignità di ciascuno e annuncio della speranza evangelica.
+            </p>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/chi-siamo_il-carisma_img_03.jpg" alt="I poveri ed esclusi" class="carisma-block-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 4: NELLA STRADA (Slate blue) -->
+    <section class="carisma-block slate" id="strada">
+      <div class="carisma-block-container">
+        <div>
+          <h2 class="carisma-block-title">NELLA STRADA &#709;</h2>
+          <div class="carisma-block-text">
+            <p>
+              La nostra vita religiosa prende il via e trova il suo senso e la sua ragione di esistere proprio nell'esercizio del ministero cristiano lungo la strada... nella strada... e per la strada.
+            </p>
+            <p>
+              La Fraternità si fa pellegrina tra la gente, facendosi compagna di viaggio di quanti cercano senso, conforto e fede, portando il sorriso e la pace di Cristo negli incroci della quotidianità.
+            </p>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/chi-siamo_il-carisma_img_04.jpg" alt="Nella strada" class="carisma-block-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 5: NELLA CHIESA (Charcoal) -->
+    <section class="carisma-block charcoal" id="chiesa">
+      <div class="carisma-block-container">
+        <div>
+          <h2 class="carisma-block-title">NELLA CHIESA &#709;</h2>
+          <div class="carisma-block-text">
+            <p>
+              La comunione filiale con i Pastori della Chiesa e l'obbedienza sincera al Romano Pontefice e ai Vescovi diocesani sono il fondamento incrollabile del nostro cammino.
+            </p>
+            <p>
+              Inseriti pienamente nel tessuto ecclesiale, collaboriamo attivamente con le diocesi di Noto, Piazza Armerina e Catania per l'edificazione del Corpo di Cristo.
+            </p>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/chi-siamo_il-carisma_img_05.jpg" alt="Nella Chiesa" class="carisma-block-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 6: I Tre Rami (Religiosi, Oblati, Secolari) -->
+    <section class="carisma-block slate" id="rami" style="border-top: 1px solid rgba(255,255,255,0.1);">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 class="carisma-block-title" style="text-align: center; justify-content: center; margin-bottom: 30px;">
+          I TRE RAMI DELLA FRATERNITÀ
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+          <!-- Religiosi -->
+          <div style="background: rgba(0,0,0,0.3); border-radius: 6px; padding: 24px;" id="religiosi">
+            <img src="assets/images/chi-siamo_il-carisma_img_06.jpg" alt="I Religiosi" style="width: 100%; border-radius: 4px; margin-bottom: 16px;">
+            <h3 style="font-family: var(--font-gs-title); color: var(--gs-gold); margin-bottom: 12px;">I Religiosi</h3>
+            <p style="color: #e0e0e0; font-size: 0.95rem;">
+              Fratelli e sorelle che professano i consigli evangelici di povertà, castità e obbedienza vivendo in comune secondo le Costituzioni della Fraternità.
+            </p>
+          </div>
+
+          <!-- Oblati -->
+          <div style="background: rgba(0,0,0,0.3); border-radius: 6px; padding: 24px;" id="oblati">
+            <img src="assets/images/chi-siamo_il-carisma_img_07.jpg" alt="Gli Oblati" style="width: 100%; border-radius: 4px; margin-bottom: 16px;">
+            <h3 style="font-family: var(--font-gs-title); color: var(--gs-gold); margin-bottom: 12px;">Gli Oblati</h3>
+            <p style="color: #e0e0e0; font-size: 0.95rem;">
+              Persone che si consacrano a Dio offrendo la propria vita nel mondo, rimanendo nel proprio stato di vita ma uniti spiritualmente alla Fraternità.
+            </p>
+          </div>
+
+          <!-- Secolari -->
+          <div style="background: rgba(0,0,0,0.3); border-radius: 6px; padding: 24px;" id="secolari">
+            <img src="assets/images/chi-siamo_il-carisma_img_08.jpg" alt="I Secolari" style="width: 100%; border-radius: 4px; margin-bottom: 16px;">
+            <h3 style="font-family: var(--font-gs-title); color: var(--gs-gold); margin-bottom: 12px;">I Secolari</h3>
+            <p style="color: #e0e0e0; font-size: 0.95rem;">
+              Laici, famiglie e giovani che condividono la spiritualità francescana nella vita quotidiana, nel lavoro e nella testimonianza sociale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-text">
+        &copy; Fraternità Santa Maria degli Angeli &mdash; <a href="http://www.confrancesco.it" target="_blank" rel="noopener" style="color: var(--gs-gold);">www.confrancesco.it</a>
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo-il-carisma.html">Il carisma</a></li>
+        <li><a href="chi-siamo-la-nostra-storia.html">La nostra storia</a></li>
+        <li><a href="chi-siamo-fratelli-in-cielo.html">Fratelli in cielo</a></li>
+        <li><a href="dove-siamo.html">Dove siamo</a></li>
+        <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

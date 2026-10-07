@@ -1,0 +1,46 @@
+name: Sync ConFrancesco Google Site
+
+on:
+  schedule:
+    # Esegue il controllo automatico ogni giorno alle 04:00 UTC (06:00 italiane)
+    - cron: '0 4 * * *'
+  # Consente anche di avviare la sincronizzazione manuale con 1 clic dal pannello di GitHub
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repository
+        uses: actions/checkout@v4
+
+      - name: Configurazione Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installazione dipendenze
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Esecuzione sincronizzazione da Google Sites
+        run: |
+          python scripts/sync_site.py
+
+      - name: Commit e Push delle modifiche su GitHub
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git status
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "chore(sync): sincronizzazione automatica da confrancesco.it [skip ci]"
+            git push
+            echo "Modifiche pubblicate con successo! Netlify si aggiornerà tra pochi secondi."
+          else
+            echo "Nessuna modifica rilevata su Google Sites. Tutto aggiornato."
+          fi

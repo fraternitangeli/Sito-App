@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>La nostra storia | Fraternità S. M. degli Angeli</title>
+  
+  <meta name="description" content="La nostra storia: dalle origini nel 1986 a Canicattini Bagni fino all'espansione a Piazza Armerina, Albacete e Catania.">
+  <meta name="theme-color" content="#1a1a1a">
+  
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ConFrancesco">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div id="network-status-bar" class="network-status-bar hidden"></div>
+
+  <div id="pwa-install-banner" class="pwa-install-banner" style="display: none;">
+    <div class="pwa-banner-content">
+      <img src="icons/icon-96x96.png" alt="San Francesco" class="pwa-banner-icon">
+      <div class="pwa-banner-text">
+        <h4>Installa l'App di San Francesco</h4>
+        <p>Scarica l'app per consultare tutti i contenuti anche offline!</p>
+      </div>
+    </div>
+    <div class="pwa-banner-actions">
+      <button class="btn-banner-install" id="btn-banner-install">&#10010; Installa App</button>
+      <button class="btn-banner-close" id="btn-banner-close" title="Chiudi">&times;</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="index.html" class="site-brand">
+        <img src="icons/icon-96x96.png" alt="San Francesco" class="brand-icon">
+        <span class="brand-title">Fraternità S. M. degli Angeli</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home page</a></li>
+          <li class="dropdown">
+            <a href="chi-siamo.html" class="nav-link active">Chi siamo &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="chi-siamo.html" class="dropdown-item">Chi siamo</a></li>
+              <li><a href="chi-siamo-il-carisma.html" class="dropdown-item">Il carisma</a></li>
+              <li><a href="chi-siamo-la-nostra-storia.html" class="dropdown-item">La nostra storia</a></li>
+              <li><a href="chi-siamo-fratelli-in-cielo.html" class="dropdown-item">Fratelli in cielo</a></li>
+            </ul>
+          </li>
+          <li><a href="dove-siamo.html" class="nav-link">Dove siamo</a></li>
+          <li><a href="calendario-attivita.html" class="nav-link">Calendario Attività</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+          <li>
+            <button class="btn-banner-install" id="nav-install-btn" style="display: none; padding: 6px 12px; margin-left: 8px;">
+              &#10010; Installa
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <aside class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="icons/icon-72x72.png" alt="San Francesco" style="width: 38px; height: 38px; border-radius: 50%;">
+        <span style="color: var(--gs-gold); font-family: var(--font-gs-title); font-weight: 700;">ConFrancesco</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home page</a></li>
+      <li>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <ul class="mobile-sub-list">
+          <li><a href="chi-siamo.html">&bull; Chi siamo</a></li>
+          <li><a href="chi-siamo-il-carisma.html">&bull; Il carisma</a></li>
+          <li><a href="chi-siamo-la-nostra-storia.html" class="active">&bull; La nostra storia</a></li>
+          <li><a href="chi-siamo-fratelli-in-cielo.html">&bull; Fratelli in cielo</a></li>
+        </ul>
+      </li>
+      <li><a href="dove-siamo.html">Dove siamo</a></li>
+      <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <button class="btn-banner-install" id="install-app-btn" style="width: 100%; justify-content: center; margin-bottom: 12px; text-align: center;">
+        &#10010; Installa l'App
+      </button>
+      <a href="tel:+393291551992" class="gs-btn-green" style="display: block; text-align: center; font-size: 1rem; padding: 10px;">
+        &#128222; Chiama Ora
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Header Banner with Translucent Box -->
+    <div class="gs-page-header" style="background-image: url('assets/images/chi-siamo_la-nostra-storia_img_18.jpg');">
+      <div class="gs-banner-box">
+        <h1 class="gs-banner-box-title">La nostra storia</h1>
+      </div>
+    </div>
+
+    <!-- Body Section (Deep Dark Charcoal with Alternating Rows) -->
+    <div class="storia-body">
+      <div class="storia-container">
+
+        <!-- Row 1: Origins -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_02.jpg" alt="Fratel Carlo e don Divo Barsotti" loading="eager">
+          </div>
+          <div>
+            <h2 class="storia-heading">Dalle origini...1986 &ndash; 2016</h2>
+            <p class="storia-text">
+              La Fraternità Santa Maria degli Angeli nasce, inizialmente con la denominazione di <strong>“Comunità San Damiano”</strong>, teoricamente nel 1986, quando il fondatore, <strong>fratel Carlo dell’Addolorata</strong>, aiutato e stimolato dalla sua guida spirituale, <strong>don Divo Barsotti</strong>, torna dopo molti anni in Sicilia per mettere nelle mani di Dio il progetto che da anni sente nel cuore: realizzare la comunione fraterna in una comunità di carattere contemplativo ma nel contempo aperta alla predicazione e all’annuncio, sullo stile della vita francescana degli esordi e soprattutto sulle orme del Cristo dei Vangeli.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 2: Canicattini Bagni casolare -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              Comincia però a realizzarsi praticamente nel 1990, dopo un periodo di quasi quattro anni di vita eremitica e solitaria. Il <strong>19 marzo del 1990</strong> un piccolo gruppo di fratelli va a vivere alle porte di <strong>Canicattini Bagni</strong>, in preghiera e solitudine.
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg" alt="Casolare a Canicattini Bagni" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 3: Arcivescovo Costanzo -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_04.jpg" alt="Visita di Mons. Costanzo" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Qualche mese dopo l'Arcivescovo appena eletto dell’Arcidiocesi di Siracusa, viene in visita privata prima e ufficiale dopo, celebrando l’Eucaristia nell’appena edificata chiesetta della Comunità, approva gli Statuti allora semplicissimi e nomina come moderatore e protettore della Fraternità mons. Sebastiano Gozzo. Il <strong>24 aprile del 1992</strong> mons. Costanzo accoglie i voti perpetui e pubblici del fondatore.
+            </p>
+            <p class="storia-text">
+              Qualche mese prima era stato firmato il decreto di Mons. Nicolosi, Vescovo di Noto, perché la Comunità potesse dipendere dall’Arcidiocesi di Siracusa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 4: Primi giovani -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              Nel '93 arrivano i primi giovani pronti a servire il Signore secondo la nostra forma di vita: una comunità contemplativa che sente il bisogno di “annunciare” ciò che il Signore dice nel silenzio e nel nascondimento. Cominciano gli interventi nelle parrocchie, le testimonianze. Si forma il primo gruppo di ragazzi di “strada”.
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_05.jpg" alt="Primi giovani nella Fraternità" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 5: Assisi e testimonianze -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_06.jpg" alt="Ad Assisi con i giovani" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Ad Assisi, nel '95, alcuni di essi cominciano un cammino di aspirantato nella comunità e cominciano a lavorare, pur rimanendo laici, nell’aiuto di altri giovani. Nel settembre del '95 fanno un recital in piazza in cui raccontano la loro esperienza di droga, di alcolismo, di rottura. Lo fanno insieme alle famiglie. Si forma un gruppo famiglie pronto ad accogliere ogni giovane che vorrà cominciare un percorso di “unificazione” con i suoi. Cominciano anche le missioni popolari ai giovani.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 6: Itineranze -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              Le <strong>itineranze</strong> (predicazioni lungo le strade percorse a piedi e in autostop), i ritiri guidati, la predicazione degli esercizi spirituali si susseguono dal 1995 al 1997. Nel '96 mons. Costanzo segue con la preghiera e con la sua presenza la comunità. Nel '97, dopo una lunga revisione degli Statuti e il Capitolo generale, la Fraternità approva gli Statuti definitivi e assume la denominazione ufficiale di <strong>Fraternità Santa Maria degli Angeli</strong>.
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_07.jpg" alt="Itineranze per le strade" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 7: Piazza Armerina & Eremo di Leano -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_08.jpg" alt="Eremo di Leano" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Nello stesso anno sono invitati per una missione a <strong>Piazza Armerina</strong>, al termine della quale l’allora Vescovo titolare Mons. Cirrincione li esorta ad aprire una casa in quella diocesi ed offre ai fratelli l’antico <strong>Eremo di Santa Maria della Consolazione a Leano</strong>, un monastero fondato dagli agostiniani riformati nel secolo XVI.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 8: Benedizione e missione a Leano -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              Il <strong>13 giugno del 1999</strong> mons. Cirrincione benedice l’attività della Fraternità e riapre al culto con una solenne concelebrazione Eucaristica l’eremo e la Fraternità. La comunità forma un gruppo giovani, si occupa dei poveri e delle famiglie in difficoltà, ma soprattutto dei giovani della strada, facendo catechesi e incontri con tossicodipendenti, omosessuali, non credenti, ex detenuti, malati mentali.
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_09.jpg" alt="Concelebrazione all'Eremo di Leano" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 9: Scuole ed esercizi spirituali -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_10.jpg" alt="Esercizi spirituali e giovani" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Dal 1998 al 2001 la comunità celebra il precetto a tutte le scuole della diocesi e predica gli esercizi spirituali. Collaborano col direttore del SerT dott. Vinicio Romano, con la dott.ssa Spadaro, primario di igiene mentale, e con i parroci.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 10: GMG con 9.000 giovani -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              Nell’anno 2000 la Fraternità anima insieme al CESMA di Gela la giornata mondiale della gioventù diocesana cui partecipano <strong>9.000 giovani</strong> (il cardinale Pappalardo avrà per loro parole di lode e di ringraziamento).
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_11.jpg" alt="GMG con 9000 giovani" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 11: Palazzolo Acreide -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg0" alt="Baracca di legno presso il fiume" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Al ritorno in diocesi di Siracusa, per una vita di maggior silenzio dopo cinque anni di apostolato e vita nelle strade, si trasferiscono nei pressi di <strong>Palazzolo Acreide</strong>, dove, invitati da P. Paolo Ruta, sacerdote della diocesi di Noto, edificano una piccola baracca di legno presso un fiume e cominciano un periodo di silenzio e preghiera continua e intensa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 12: Accoglienza scouts -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              Dopo qualche mese P. Ruta affida loro il posto dove, col permesso dell’Arcivescovo mons. Costanzo, viene portata l’Eucarestia e inizia una esperienza di preghiera e di accoglienza. In questo primo anno sono stati accolti solo nei mesi estivi oltre duecento giovani, in prevalenza scouts. Continuano gli studi teologici ordinari.
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg1" alt="Accoglienza giovani scouts" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 13: Noviziato di fra Bernardo -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg2" alt="Vestizione di fra Bernardo" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Nel cammino si unisce <strong>fra Bernardo di Gesù povero</strong>, che inizia il suo cammino di noviziato religioso a Piazza Armerina ricevendo i “panni della prova”.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 14: Missione in bicicletta -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              È del 2005 l’esperienza condotta “in bicicletta” sempre in Diocesi di Noto dove evangelizzano i giovani nella strada con la collaborazione del seminario di Noto guidato da don Rosario Gisana.
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg3" alt="Missione in bicicletta" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 15: Albacete (Spagna) -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg4" alt="Missione ad Albacete" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Dal settembre del 2009 due fratelli religiosi si trasferiscono nella <strong>Diocesi di Albacete, in Spagna</strong>, dove il Vescovo affida loro la pastorale del carcere e la cura pastorale di una parrocchia. Fra Bernardo viene nominato vicario di zona della delegazione dei giovani.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 16: Ordinazione sacerdotale -->
+        <div class="storia-row reverse-mobile">
+          <div>
+            <p class="storia-text">
+              Nel 2013 <strong>don Ciriaco Benavente Mateos</strong> ha eretto definitivamente la Fraternità come <strong>Associazione pubblica di fedeli</strong> e ha ordinato diaconi fratel Bernardo e fratel Carlo. Il <strong>22 settembre dello stesso anno</strong> i due fratelli sono stati ordinati sacerdoti nella cattedrale di Albacete.
+            </p>
+          </div>
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg5" alt="Ordinazione sacerdotale" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Row 17: Consolidamento oggi -->
+        <div class="storia-row">
+          <div class="storia-img-wrap">
+            <img src="assets/images/chi-siamo_la-nostra-storia_img_03.jpg6" alt="Con il Vescovo di Albacete" loading="lazy">
+          </div>
+          <div>
+            <p class="storia-text">
+              Nel 2016 anche il <strong>Vescovo di Noto</strong> ha approvato la Fraternità come associazione pubblica di fedeli e il <strong>Vescovo di Piazza Armerina</strong> ha accolto un nucleo di fratelli presenti nel territorio della sua diocesi. A <strong>Catania</strong> si è formata una piccola fraternità guidata da un nostro diacono presso la Chiesa di Santa Teresa.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-text">
+        &copy; Fraternità Santa Maria degli Angeli &mdash; <a href="http://www.confrancesco.it" target="_blank" rel="noopener" style="color: var(--gs-gold);">www.confrancesco.it</a>
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo-il-carisma.html">Il carisma</a></li>
+        <li><a href="chi-siamo-la-nostra-storia.html">La nostra storia</a></li>
+        <li><a href="chi-siamo-fratelli-in-cielo.html">Fratelli in cielo</a></li>
+        <li><a href="dove-siamo.html">Dove siamo</a></li>
+        <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

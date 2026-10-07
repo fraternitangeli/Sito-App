@@ -1,0 +1,4 @@
+# Ignore netlify-deploy duplicate folder and personal notes
+netlify-deploy/
+ISTRUZIONI_NETLIFY.txt
+.tmp.*

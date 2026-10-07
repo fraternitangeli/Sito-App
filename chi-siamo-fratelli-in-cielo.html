@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fratelli in cielo | Fraternità S. M. degli Angeli</title>
+  
+  <meta name="description" content="I nostri fratelli e sorelle in cielo: Sorella Olga, Sorella Elisabetta, Fra Din Don, Addolorata Gagliardi.">
+  <meta name="theme-color" content="#1a1a1a">
+  
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ConFrancesco">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div id="network-status-bar" class="network-status-bar hidden"></div>
+
+  <div id="pwa-install-banner" class="pwa-install-banner" style="display: none;">
+    <div class="pwa-banner-content">
+      <img src="icons/icon-96x96.png" alt="San Francesco" class="pwa-banner-icon">
+      <div class="pwa-banner-text">
+        <h4>Installa l'App di San Francesco</h4>
+        <p>Scarica l'app per consultare tutti i contenuti anche offline!</p>
+      </div>
+    </div>
+    <div class="pwa-banner-actions">
+      <button class="btn-banner-install" id="btn-banner-install">&#10010; Installa App</button>
+      <button class="btn-banner-close" id="btn-banner-close" title="Chiudi">&times;</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="index.html" class="site-brand">
+        <img src="icons/icon-96x96.png" alt="San Francesco" class="brand-icon">
+        <span class="brand-title">Fraternità S. M. degli Angeli</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home page</a></li>
+          <li class="dropdown">
+            <a href="chi-siamo.html" class="nav-link active">Chi siamo &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="chi-siamo.html" class="dropdown-item">Chi siamo</a></li>
+              <li><a href="chi-siamo-il-carisma.html" class="dropdown-item">Il carisma</a></li>
+              <li><a href="chi-siamo-la-nostra-storia.html" class="dropdown-item">La nostra storia</a></li>
+              <li><a href="chi-siamo-fratelli-in-cielo.html" class="dropdown-item">Fratelli in cielo</a></li>
+            </ul>
+          </li>
+          <li><a href="dove-siamo.html" class="nav-link">Dove siamo</a></li>
+          <li><a href="calendario-attivita.html" class="nav-link">Calendario Attività</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+          <li>
+            <button class="btn-banner-install" id="nav-install-btn" style="display: none; padding: 6px 12px; margin-left: 8px;">
+              &#10010; Installa
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <aside class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="icons/icon-72x72.png" alt="San Francesco" style="width: 38px; height: 38px; border-radius: 50%;">
+        <span style="color: var(--gs-gold); font-family: var(--font-gs-title); font-weight: 700;">ConFrancesco</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home page</a></li>
+      <li>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <ul class="mobile-sub-list">
+          <li><a href="chi-siamo.html">&bull; Chi siamo</a></li>
+          <li><a href="chi-siamo-il-carisma.html">&bull; Il carisma</a></li>
+          <li><a href="chi-siamo-la-nostra-storia.html">&bull; La nostra storia</a></li>
+          <li><a href="chi-siamo-fratelli-in-cielo.html" class="active">&bull; Fratelli in cielo</a></li>
+        </ul>
+      </li>
+      <li><a href="dove-siamo.html">Dove siamo</a></li>
+      <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <button class="btn-banner-install" id="install-app-btn" style="width: 100%; justify-content: center; margin-bottom: 12px; text-align: center;">
+        &#10010; Installa l'App
+      </button>
+      <a href="tel:+393291551992" class="gs-btn-green" style="display: block; text-align: center; font-size: 1rem; padding: 10px;">
+        &#128222; Chiama Ora
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Header Banner (Sunset horizon over water) -->
+    <div class="gs-page-header" style="background-image: url('assets/images/chi-siamo_fratelli-in-cielo_img_04.jpg');">
+      <div class="gs-page-header-content">
+        <h1 class="gs-page-title" style="color: #1a1a1a; text-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff;">Fratelli in Cielo</h1>
+      </div>
+    </div>
+
+    <!-- 4 Columns Grid Section -->
+    <div class="fratelli-body">
+      <div class="fratelli-grid">
+        
+        <!-- Col 1: Sorella Olga -->
+        <div class="fratelli-col">
+          <div class="fratelli-photo-wrap">
+            <img src="assets/images/chi-siamo_fratelli-in-cielo_img_01.jpg" alt="Sorella Olga di Gesù Bambino" loading="eager">
+          </div>
+          <h2 class="fratelli-name">Sorella Olga di Gesù Bambino</h2>
+        </div>
+
+        <!-- Col 2: Sorella Elisabetta -->
+        <div class="fratelli-col">
+          <div class="fratelli-photo-wrap">
+            <img src="assets/images/chi-siamo_fratelli-in-cielo_img_02.jpg" alt="Sorella Elisabetta" loading="eager">
+          </div>
+          <h2 class="fratelli-name">Sorella Elisabetta</h2>
+        </div>
+
+        <!-- Col 3: Fra Din Don -->
+        <div class="fratelli-col">
+          <div class="fratelli-photo-wrap">
+            <img src="assets/images/chi-siamo_fratelli-in-cielo_img_03.jpg" alt="Fra Din Don (Gianni Papa)" loading="eager">
+          </div>
+          <h2 class="fratelli-name">Fra Din Don (Gianni Papa)</h2>
+        </div>
+
+        <!-- Col 4: Addolorata Gagliardi with Video -->
+        <div class="fratelli-col">
+          <div class="fratelli-photo-wrap" style="height: auto; aspect-ratio: 9/16; max-height: 380px;">
+            <div class="video-responsive-wrap" style="padding-bottom: 120%; height: 100%;">
+              <iframe 
+                src="https://www.youtube.com/embed/P6V1qB6KxJk" 
+                title="Ultimo saluto di nonna Addolorata" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+              <div class="video-offline-fallback" style="display: none;">
+                <h4 style="font-family: var(--font-gs-title); color: var(--gs-gold);">Nonna Addolorata</h4>
+                <p style="font-size: 0.8rem;">Offline: video disponibile quando online.</p>
+                <a href="https://youtu.be/P6V1qB6KxJk" target="_blank" rel="noopener" class="gs-btn-olive" style="font-size: 0.8rem; padding: 4px 12px;">
+                  Apri Video
+                </a>
+              </div>
+            </div>
+          </div>
+          <h2 class="fratelli-name">Addolorata Gagliardi</h2>
+          <p class="fratelli-subtext">
+            La morte non è riuscita a separarci e la resurrezione con Cristo ci riunirà definitivamente.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-text">
+        &copy; Fraternità Santa Maria degli Angeli &mdash; <a href="http://www.confrancesco.it" target="_blank" rel="noopener" style="color: var(--gs-gold);">www.confrancesco.it</a>
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo-il-carisma.html">Il carisma</a></li>
+        <li><a href="chi-siamo-la-nostra-storia.html">La nostra storia</a></li>
+        <li><a href="chi-siamo-fratelli-in-cielo.html">Fratelli in cielo</a></li>
+        <li><a href="dove-siamo.html">Dove siamo</a></li>
+        <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dove siamo | Fraternità S. M. degli Angeli</title>
+  
+  <meta name="description" content="Dove siamo: Noto (Eremo San Damiano e Parrocchia S. Lucia di Mendola), Piazza Armerina e Catania (Chiesa Santa Teresa).">
+  <meta name="theme-color" content="#1a1a1a">
+  
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ConFrancesco">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div id="network-status-bar" class="network-status-bar hidden"></div>
+
+  <div id="pwa-install-banner" class="pwa-install-banner" style="display: none;">
+    <div class="pwa-banner-content">
+      <img src="icons/icon-96x96.png" alt="San Francesco" class="pwa-banner-icon">
+      <div class="pwa-banner-text">
+        <h4>Installa l'App di San Francesco</h4>
+        <p>Scarica l'app per consultare tutti i contenuti anche offline!</p>
+      </div>
+    </div>
+    <div class="pwa-banner-actions">
+      <button class="btn-banner-install" id="btn-banner-install">&#10010; Installa App</button>
+      <button class="btn-banner-close" id="btn-banner-close" title="Chiudi">&times;</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="index.html" class="site-brand">
+        <img src="icons/icon-96x96.png" alt="San Francesco" class="brand-icon">
+        <span class="brand-title">Fraternità S. M. degli Angeli</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home page</a></li>
+          <li class="dropdown">
+            <a href="chi-siamo.html" class="nav-link">Chi siamo &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="chi-siamo.html" class="dropdown-item">Chi siamo</a></li>
+              <li><a href="chi-siamo-il-carisma.html" class="dropdown-item">Il carisma</a></li>
+              <li><a href="chi-siamo-la-nostra-storia.html" class="dropdown-item">La nostra storia</a></li>
+              <li><a href="chi-siamo-fratelli-in-cielo.html" class="dropdown-item">Fratelli in cielo</a></li>
+            </ul>
+          </li>
+          <li><a href="dove-siamo.html" class="nav-link active">Dove siamo</a></li>
+          <li><a href="calendario-attivita.html" class="nav-link">Calendario Attività</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+          <li>
+            <button class="btn-banner-install" id="nav-install-btn" style="display: none; padding: 6px 12px; margin-left: 8px;">
+              &#10010; Installa
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <aside class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="icons/icon-72x72.png" alt="San Francesco" style="width: 38px; height: 38px; border-radius: 50%;">
+        <span style="color: var(--gs-gold); font-family: var(--font-gs-title); font-weight: 700;">ConFrancesco</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn">&times;</button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home page</a></li>
+      <li>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <ul class="mobile-sub-list">
+          <li><a href="chi-siamo.html">&bull; Chi siamo</a></li>
+          <li><a href="chi-siamo-il-carisma.html">&bull; Il carisma</a></li>
+          <li><a href="chi-siamo-la-nostra-storia.html">&bull; La nostra storia</a></li>
+          <li><a href="chi-siamo-fratelli-in-cielo.html">&bull; Fratelli in cielo</a></li>
+        </ul>
+      </li>
+      <li><a href="dove-siamo.html" class="active">Dove siamo</a></li>
+      <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <button class="btn-banner-install" id="install-app-btn" style="width: 100%; justify-content: center; margin-bottom: 12px; text-align: center;">
+        &#10010; Installa l'App
+      </button>
+      <a href="tel:+393291551992" class="gs-btn-green" style="display: block; text-align: center; font-size: 1rem; padding: 10px;">
+        &#128222; Chiama Ora
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Header Banner (Cartoon San Francesco with sack) -->
+    <div class="gs-page-header" style="background-image: url('assets/images/dove-siamo_img_04.jpg'); justify-content: flex-end; padding-right: 60px;">
+      <div class="gs-page-header-content">
+        <h1 class="gs-page-title" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9);">Dove siamo</h1>
+      </div>
+    </div>
+
+    <!-- Venue 1: Eremo San Damiano -->
+    <section class="dove-siamo-section">
+      <div class="dove-siamo-container">
+        <!-- Col 1: Venue Image -->
+        <div class="dove-venue-img-wrap">
+          <img src="assets/images/dove-siamo_img_01.jpg" alt="Eremo San Damiano" loading="eager">
+        </div>
+
+        <!-- Col 2: Text Description -->
+        <div class="dove-venue-text">
+          <p>
+            L'<strong>Eremo San Damiano</strong> è la Casa Madre della Fraternità e si trova a 3 km da Canicattini Bagni, in Diocesi di Noto. Una vecchia masseria ristrutturata e trasformata in luogo di accoglienza e preghiera. In questa oasi di silenzio, immersa in otto ettari di terreno alberato, si svolge la parte contemplativa della nostra vita. Si offre anche un luogo di rifugio e rigenerazione spirituale per tutti coloro che ne sentano l'esigenza.
+          </p>
+        </div>
+
+        <!-- Col 3: Map -->
+        <div class="dove-venue-media">
+          <div class="map-wrap">
+            <iframe 
+              src="https://maps.google.com/maps?q=Eremo+San+Damiano+Canicattini+Bagni&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              title="Mappa Eremo San Damiano"
+              loading="lazy">
+            </iframe>
+          </div>
+          <a href="https://maps.google.com/?q=Eremo+San+Damiano+Canicattini+Bagni" target="_blank" rel="noopener" class="gs-btn-olive" style="font-size: 0.85rem; padding: 6px 12px; text-align: center;">
+            &#128205; Apri in Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Slate Band -->
+    <div class="dove-siamo-divider"></div>
+
+    <!-- Venue 2: Parrocchia S. Lucia di Mendola -->
+    <section class="dove-siamo-section">
+      <div class="dove-siamo-container">
+        <!-- Col 1: Venue Image -->
+        <div class="dove-venue-img-wrap">
+          <img src="assets/images/dove-siamo_img_02.jpg" alt="Parrocchia S. Lucia di Mendola" loading="lazy">
+        </div>
+
+        <!-- Col 2: Text Description -->
+        <div class="dove-venue-text">
+          <p>
+            La <strong>Parrocchia di Santa Lucia di Mendola</strong> è il luogo dove svolgiamo il nostro servizio pastorale. È situata a ridosso di un importante ed antico Sito Archeologico, immersa nel verde dei campi della Contrada Santa Lucia ai margini della Diocesi di Noto a 4 Km da Palazzolo Acreide (SR) sulla SP 24. Nella casa parrocchiale si accolgono, quando capita, anche dei piccoli gruppi. La Patrona si festeggia la prima settimana di settembre.
+          </p>
+        </div>
+
+        <!-- Col 3: Map & Video -->
+        <div class="dove-venue-media">
+          <div class="map-wrap">
+            <iframe 
+              src="https://maps.google.com/maps?q=Santa+Lucia+di+Mendola+Palazzolo+Acreide&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              title="Mappa Santa Lucia di Mendola"
+              loading="lazy">
+            </iframe>
+          </div>
+          
+          <div class="video-responsive-wrap" style="padding-bottom: 56.25%;">
+            <iframe 
+              src="https://www.youtube.com/embed/n0eJb9TfLps" 
+              title="Santa Lucia fabio iaci" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Slate Band -->
+    <div class="dove-siamo-divider"></div>
+
+    <!-- Venue 3: Catania -->
+    <section class="dove-siamo-section">
+      <div class="dove-siamo-container">
+        <!-- Col 1: Venue Image -->
+        <div class="dove-venue-img-wrap">
+          <img src="assets/images/dove-siamo_img_03.jpg" alt="Chiesa di Santa Teresa Catania" loading="lazy">
+        </div>
+
+        <!-- Col 2: Text Description & Schedule -->
+        <div class="dove-venue-text">
+          <p>
+            Il <strong>Centro di Spiritualità ss. Francesco e Teresina</strong> si trova a Catania presso la Chiesa di Santa Teresa in via Antonino di Sangiuliano, 219. Si offre un servizio di celebrazioni, accoglienza, confessioni ed Ascolto secondo i seguenti orari:
+          </p>
+          <p style="margin-top: 12px; line-height: 1.8;">
+            <strong>Giovedì:</strong> 17:00 - 20:30 (*) (19:30 ADORAZIONE EUCARISTICA)<br>
+            <strong>Venerdì:</strong> 10:00 - 12:30 / 17:00 - 23:30 (**) (19:15 - S. ROSARIO) (20:00 - S. MESSA E INCONTRO)<br>
+            <strong>Sabato:</strong> 10:00 - 12:30 / 17:00 - 23:30 (**) (19:15 - S. ROSARIO) (20:00 - S. MESSA)<br>
+            <strong>Domenica:</strong> 09:00 - S. MESSA
+          </p>
+        </div>
+
+        <!-- Col 3: Map & Video -->
+        <div class="dove-venue-media">
+          <div class="map-wrap">
+            <iframe 
+              src="https://maps.google.com/maps?q=Via+Antonino+di+Sangiuliano+219+Catania&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Mappa Catania Chiesa Santa Teresa"
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="video-responsive-wrap" style="padding-bottom: 56.25%;">
+            <iframe 
+              src="https://www.youtube.com/embed/L1Y8n7gDfgY" 
+              title="5 Novembre fr. Bernardo" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-text">
+        &copy; Fraternità Santa Maria degli Angeli &mdash; <a href="http://www.confrancesco.it" target="_blank" rel="noopener" style="color: var(--gs-gold);">www.confrancesco.it</a>
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo-il-carisma.html">Il carisma</a></li>
+        <li><a href="chi-siamo-la-nostra-storia.html">La nostra storia</a></li>
+        <li><a href="chi-siamo-fratelli-in-cielo.html">Fratelli in cielo</a></li>
+        <li><a href="dove-siamo.html">Dove siamo</a></li>
+        <li><a href="calendario-attivita.html">Calendario Attività</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
