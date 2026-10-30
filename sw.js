@@ -4,7 +4,7 @@
  * Offline Caching & Stale-While-Revalidate Update Engine
  */
 
-const CACHE_VERSION = 'v1.2.0-202610290444';
+const CACHE_VERSION = 'v1.2.0-202610300443';
 const CACHE_NAME = 'confrancesco-cache-' + CACHE_VERSION;
 
 const CORE_ASSETS = [
